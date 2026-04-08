@@ -96,11 +96,13 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.meronpan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "input" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "input" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
   };
+
+  virtualisation.docker.enable = true;
 
   security.sudo.enable = true;
   security.polkit.enable = true;
